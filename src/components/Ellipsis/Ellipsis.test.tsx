@@ -6,12 +6,13 @@ describe("Ellipsis", () => {
   test("render the ellipsis component", () => {
     render(
       <Ellipsis
-        ellipsis={"..."}
-        label={"Show more"}
+        ellipsis="..."
+        label="Show more"
         id={1}
-        text={"Lorem Ipsum"}
+        text="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
         limit={5}
-        class={"more"}
+        class="more"
+        mode={2}
       />
     );
   });

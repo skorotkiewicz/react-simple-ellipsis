@@ -6,10 +6,11 @@
 
 | prop     |   default   |             type |
 | -------- | :---------: | ---------------: |
+| id       | _required_  | string \| number |
+| text     | _required_  |           string |
+| mode     |             |           number |
 | ellipsis |    "..."    |           string |
 | label    | "Show more" |           string |
-| id       |  undefined  | string \| number |
-| text     |  undefined  |           string |
 | limit    |     200     |           number |
 | class    |   "more"    |           string |
 
@@ -23,6 +24,12 @@ npm i react-simple-ellipsis
 
 ## Usage
 
+`mode`
+
+- `1` - truncate the text to the _**next word**_ when the limit is reached
+- `2` - truncate the text _**before**_ the word after the limit is reached
+- default: break the text after the limit has been reached
+
 ```jsx
 import { Ellipsis } from "react-simple-ellipsis";
 
@@ -33,5 +40,6 @@ import { Ellipsis } from "react-simple-ellipsis";
   text={comment.text}
   limit={200}
   class="more"
+  mode={2}
 />;
 ```
