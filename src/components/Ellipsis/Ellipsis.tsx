@@ -7,7 +7,7 @@ export interface EllipsisProps {
   text: string;
   limit?: number;
   class?: string;
-  mode?: number;
+  mode?: TrimmingMode;
 }
 
 enum TrimmingMode {
