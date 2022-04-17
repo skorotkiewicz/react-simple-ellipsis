@@ -1,45 +1,48 @@
-import React, { useState } from "react";
+import React, { useState, useMemo, useCallback } from "react";
 
 export interface EllipsisProps {
-  ellipsis: string;
-  label: string;
-  id: string | number;
-  text: string;
-  limit: number;
-  class: string;
-  showLess: boolean;
+    ellipsis: string;
+    label: string;
+    id: string | number;
+    text: string;
+    limit: number;
+    class: string;
+    showLess: boolean;
 }
 
 const Ellipsis = (props: EllipsisProps) => {
-  const [showMore, setShowMore] = useState<string | number>();
-  const limit = props.limit ? props.limit : 200;
-  const ellipsis = props.ellipsis ? props.ellipsis : "...";
+    const { text, id, label, class: className } = props;
+    const [showMore, setShowMore] = useState<string | number>();
+    const limit = props.limit ?? 200;
+    const ellipsis = props.ellipsis ?? "...";
 
-  const ellipsisStr = (str: string) => {
-    if (str.length > limit) {
-      return str.slice(0, limit) + ellipsis;
-    } else {
-      return str;
-    }
-  };
+    const ellipsisStr = useMemo(() => {
+        if (text.length > limit) {
+            return text.slice(0, limit) + ellipsis;
+        } else {
+            return text;
+        }
+    }, [text]);
 
-  return (
-    <>
+    const onClick = useCallback(() => {
+        setShowMore(id);
+    }, [id, setShowMore]);
+
+    return (
+        <>
       <span>
-        {showMore === props.id ? props.text : ellipsisStr(props.text)}
+        {showMore === id ? text : ellipsisStr}
       </span>
-      {props.text.length > limit && showMore !== props.id && (
-        <span
-          className={props.class ? props.class : "more"}
-          onClick={() => {
-            setShowMore(props.id);
-          }}
-        >
-          {props.label ? props.label : "Show more"}
+            {text.length > limit && showMore !== id && (
+                <span
+                    className={className ?? "more"}
+                    onClick={onClick}
+                >
+          {label ?? "Show more"}
         </span>
-      )}
-    </>
-  );
+            )}
+        </>
+    );
 };
 
 export default Ellipsis;
