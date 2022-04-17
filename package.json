@@ -1,6 +1,6 @@
 {
   "name": "react-simple-ellipsis",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A very simple component that allows you to add ellipsis to your texts when you do not want to display the entire text with the possibility of displaying the entire text",
   "scripts": {
     "rollup": "rollup -c",
@@ -48,5 +48,15 @@
     "dist"
   ],
   "types": "dist/index.d.ts",
-  "dependencies": {}
+  "dependencies": {},
+  "contributors": [
+    {
+      "name": "Kacper Dondziak",
+      "url": "https://github.com/Maniakrzelaza"
+    }
+  ],
+  "funding": {
+    "type": "individual",
+    "url": "https://paypal.me/skorotkiewicz"
+  }
 }
