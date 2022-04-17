@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import Ellipsis from "./Ellipsis";
+import { Ellipsis, EllipsisMode } from "./Ellipsis";
 
 describe("Ellipsis", () => {
   test("render the ellipsis component", () => {
@@ -12,7 +12,7 @@ describe("Ellipsis", () => {
         text="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
         limit={5}
         class="more"
-        mode={2}
+        mode={EllipsisMode.After}
       />
     );
   });

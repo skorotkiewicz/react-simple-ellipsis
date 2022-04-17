@@ -1,1 +1,1 @@
-export { default } from "./Ellipsis";
+export { Ellipsis, EllipsisMode } from "./Ellipsis";

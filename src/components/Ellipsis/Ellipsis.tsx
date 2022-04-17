@@ -16,7 +16,7 @@ export enum EllipsisMode {
   Before,
 }
 
-const Ellipsis = (props: EllipsisProps) => {
+export const Ellipsis = (props: EllipsisProps) => {
   const { text, id, label, class: className, mode } = props;
   const [showMore, setShowMore] = useState<string | number>();
   const limit = props.limit ?? 200;
@@ -60,5 +60,3 @@ const Ellipsis = (props: EllipsisProps) => {
     </>
   );
 };
-
-export default Ellipsis;
