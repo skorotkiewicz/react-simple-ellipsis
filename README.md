@@ -28,7 +28,7 @@ npm i react-simple-ellipsis
 
 - `1` - truncate the text to the _**next word**_ when the limit is reached
 - `2` - truncate the text _**before**_ the word after the limit is reached
-- default: break the text after the limit has been reached
+- default: break the text when the limit has been reached
 
 ```jsx
 import { Ellipsis } from "react-simple-ellipsis";

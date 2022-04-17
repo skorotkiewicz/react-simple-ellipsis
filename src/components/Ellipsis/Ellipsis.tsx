@@ -10,6 +10,11 @@ export interface EllipsisProps {
   mode?: number;
 }
 
+enum TrimmingMode {
+  Next = 1,
+  Before = 2,
+}
+
 const Ellipsis = (props: EllipsisProps) => {
   const { text, id, label, class: className, mode } = props;
   const [showMore, setShowMore] = useState<string | number>();
@@ -21,11 +26,11 @@ const Ellipsis = (props: EllipsisProps) => {
       let breakpoint;
 
       switch (mode) {
-        case 1:
+        case TrimmingMode.Next:
           breakpoint = limit + text.substring(limit).indexOf(" ");
           break;
 
-        case 2:
+        case TrimmingMode.Before:
           breakpoint = text.substring(0, limit).lastIndexOf(" ");
           break;
 
