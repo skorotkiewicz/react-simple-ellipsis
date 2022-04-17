@@ -24,11 +24,11 @@ npm i react-simple-ellipsis
 
 ## Usage
 
-`mode`
+### Truncate `mode`
 
-- `1` - truncate the text to the _**next word**_ when the limit is reached
-- `2` - truncate the text _**before**_ the word after the limit is reached
-- default: break the text when the limit has been reached
+- `1` or `EllipsisMode.After`: Truncate text _**after**_ the next word when the limit is reached
+- `2` or `EllipsisMode.Before`: Truncate text _**before**_ a word when the limit is reached
+- _default_ `EllipsisMode.InPlace`: Truncate text when the limit has been reached
 
 ```jsx
 import { Ellipsis } from "react-simple-ellipsis";
@@ -40,6 +40,22 @@ import { Ellipsis } from "react-simple-ellipsis";
   text={comment.text}
   limit={200}
   class="more"
-  mode={2}
+  mode={1}
+/>;
+```
+
+Or
+
+```jsx
+import { Ellipsis, EllipsisMode } from "react-simple-ellipsis";
+
+<Ellipsis
+  ellipsis="..."
+  label="Show more"
+  id={comment.id}
+  text={comment.text}
+  limit={200}
+  class="more"
+  mode={EllipsisMode.After}
 />;
 ```
